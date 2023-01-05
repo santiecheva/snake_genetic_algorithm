@@ -1,17 +1,22 @@
-import sys, pygame
+import sys
+import pygame as pg
+from params import load_images
 
-pygame.init()
 
-size = width, height = 320, 240
+
+pg.init()
+
+size = width, height = 500, 500
 speed = [2, 2]
 black = 0, 0, 0
 
-screen = pygame.display.set_mode(size)
-
+screen = pg.display.set_mode(size)
+image = load_images('./assets/apple.png')
 while True:
-    for event in pygame.event.get():
+    for event in pg.event.get():
 
-        if event.type == pygame.QUIT: sys.exit()
+        if event.type == pg.QUIT: sys.exit()
 
     screen.fill(black)
-    pygame.display.flip()
+    screen.blit(image,(0,0))
+    pg.display.flip()
